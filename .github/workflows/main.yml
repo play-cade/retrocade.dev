@@ -16,6 +16,8 @@ jobs:
         include-prerelease: true
     - name: Publish with dotnet
       run: dotnet publish src/retrocade.dev.csproj --configuration Release --output build
+    - name: Disable Jekyll
+      run: touch build/wwwroot/.nojekyll
     - name: Deploy to Github Pages
       uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
